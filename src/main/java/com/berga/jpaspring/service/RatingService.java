@@ -29,7 +29,7 @@ public class RatingService implements GenericService<Rating, Long> {
 		return this.ratingRepository;
 	}
 	
-	public Iterable<Rating> getRatingsByProdutId(final String productId) {
+	public Iterable<Rating> getRatingsByProductId(final String productId) {
 		return this.ratingRepository.getRatingsByProductId(productId);
 	}
 
