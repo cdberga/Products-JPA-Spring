@@ -28,12 +28,12 @@ public interface GenericService<T, ID extends Serializable> {
 		}
 	}
 	
-	public default void update(T entity) {
+	public default T update(T entity) {
 		if(getRepository().existsById(getId(entity))) {
-			getRepository().save(entity);
+			return getRepository().save(entity);
 		}
 		else {
-			throw new ServiceException("Can not update beacause object does not exist in DB: " + entity);
+			throw new ServiceException("Can not update because object does not exist in DB: " + entity);
 		}
 	}
 	
