@@ -2,12 +2,14 @@ package com.berga.jpaspring.service;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 import com.berga.jpaspring.model.Rating;
 import com.berga.jpaspring.repository.ProductRepository;
 import com.berga.jpaspring.repository.RatingRepository;
 import com.berga.jpaspring.repository.UserRepository;
 
+@Service
 public class RatingService implements GenericService<Rating, Long> {
 
 	private final RatingRepository ratingRepository;

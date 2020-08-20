@@ -3,10 +3,12 @@ package com.berga.jpaspring.service;
 import java.util.UUID;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 import com.berga.jpaspring.model.User;
 import com.berga.jpaspring.repository.UserRepository;
 
+@Service
 public class UserService implements GenericService<User, String> {
 
 	private final UserRepository userRepository;

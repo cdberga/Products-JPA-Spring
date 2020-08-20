@@ -1,10 +1,12 @@
 package com.berga.jpaspring.service;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
 import com.berga.jpaspring.model.Product;
 import com.berga.jpaspring.repository.ProductRepository;
 
+@Service
 public class ProductService implements GenericService<Product, String> {
 
 	private final ProductRepository productRepository;
