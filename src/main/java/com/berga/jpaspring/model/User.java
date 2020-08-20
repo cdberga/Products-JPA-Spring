@@ -21,6 +21,9 @@ public class User {
 
 	private String city;
 	
+	public User() {
+	}
+	
 	public User(String userId, String firstName, String lastName, String city) {
 		this.userId = userId;
 		this.firstName = firstName;
