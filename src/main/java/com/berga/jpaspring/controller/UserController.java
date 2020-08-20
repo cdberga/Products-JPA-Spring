@@ -45,8 +45,8 @@ public class UserController {
 	
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateUser(@RequestBody User user) {
-		userService.update(user);
-		return ResponseEntity.noContent().build();
+		User updatedUser = userService.update(user);
+		return ResponseEntity.ok(new ResponseVO<>(updatedUser.getUserId()));
 	}
 	
 	@DeleteMapping(value="/{user_id}")

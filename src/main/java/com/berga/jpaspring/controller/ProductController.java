@@ -2,6 +2,7 @@ package com.berga.jpaspring.controller;
 
 import java.net.URI;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -55,8 +56,8 @@ public class ProductController {
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> update(@RequestBody Product product) {
-		productService.update(product);
-		return ResponseEntity.noContent().build();
+		Product productSaved = productService.update(product);
+		return ResponseEntity.ok(new ResponseVO<>(productSaved.getId()));
 	}
 
 	@GetMapping(value = "/{product_id}/ratings", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -85,8 +86,8 @@ public class ProductController {
 	@PutMapping(value = "/{product_id}/ratings/{rating_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateRating(@PathVariable("product_id") String productId,
 			@PathVariable("rating_id") Long ratingId, @RequestBody Rating rating) {
-		ratingService.update(rating);
-		return ResponseEntity.noContent().build();
+		Rating savedRating = ratingService.update(rating);
+		return ResponseEntity.ok(new ResponseVO<>(savedRating.getRatingId()));
 	}
 
 	@DeleteMapping(value = "/{product_id}/ratings/{rating_id}", produces = MediaType.APPLICATION_JSON_VALUE)
