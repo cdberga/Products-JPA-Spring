@@ -12,7 +12,7 @@ public interface GenericService<T, ID extends Serializable> {
 	}
 	
 	public default T get(ID id) {
-		return (T) getRepository().findById(id);
+		return (T) getRepository().findById(id).get();
 	}
 	
 	public default T save(T entity) {
