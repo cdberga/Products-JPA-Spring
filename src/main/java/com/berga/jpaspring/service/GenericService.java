@@ -1,6 +1,7 @@
 package com.berga.jpaspring.service;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.data.repository.CrudRepository;
@@ -12,7 +13,8 @@ public interface GenericService<T, ID extends Serializable> {
 	}
 	
 	public default T get(ID id) {
-		return (T) getRepository().findById(id).get();
+		Optional<T> object = getRepository().findById(id);
+		return object.orElse(null);
 	}
 	
 	public default T save(T entity) {
