@@ -5,7 +5,5 @@ stage 'Checkout'
  }
 stage 'Build'
  node('master') {
-  steps {
-        sh 'mvn -B -DskipTests clean verify' 
-    }
+    sh 'mvn -B -DskipTests clean verify' 
  }
