@@ -3,7 +3,8 @@ stage 'Checkout'
   deleteDir()
   checkout scm
  }
- stage('Unit tests') {
+ stage 'Unit tests'
+  node('master') {
     sh 'mvn clean test'
 }
 stage 'Build'
